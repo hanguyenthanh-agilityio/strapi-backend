@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leave_applications",
+  "info": {
+    "singularName": "leave-application",
+    "pluralName": "leave-applications",
+    "displayName": "leave-application",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "resumptionDate": {
+      "type": "date"
+    },
+    "employeeName": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "annual",
+        "sick",
+        "casual"
+      ]
+    },
+    "durations": {
+      "type": "integer"
+    },
+    "documentPath": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "reliefOfficerFirstName": {
+      "type": "string"
+    },
+    "reliefOfficerLastName": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    }
+  }
+}
