@@ -1,12 +1,14 @@
-import { parse } from "pg-connection-string";
 import path from "path";
+import { parse } from "pg-connection-string";
 
 export default ({ env }) => {
   const client = env("DATABASE_CLIENT", "postgres");
 
   if (client === "postgres") {
     const dbUrl = env("DATABASE_URL");
+
     if (!dbUrl) {
+      console.error("❌ DATABASE_URL is missing!");
       throw new Error("Missing DATABASE_URL environment variable");
     }
 
