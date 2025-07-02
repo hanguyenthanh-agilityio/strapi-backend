@@ -27,6 +27,11 @@ export default ({ env }) => {
             rejectUnauthorized: false,
           },
         },
+        pool: {
+          min: 0,
+          max: 2,
+        },
+        acquireConnectionTimeout: 60000,
       },
     };
   }
