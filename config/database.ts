@@ -1,34 +1,37 @@
-import path from "path";
 import { parse } from "pg-connection-string";
+import path from "path";
 
 export default ({ env }) => {
   const client = env("DATABASE_CLIENT", "postgres");
 
-  const connections = {
-    postgres: {
-      connection: (() => {
-        const { host, port, database, user, password } = parse(
-          env("DATABASE_URL")
-        );
+  if (client === "postgres") {
+    const dbUrl = env("DATABASE_URL");
+    if (!dbUrl) {
+      throw new Error("Missing DATABASE_URL environment variable");
+    }
 
-        return {
-          host,
-          port: Number(port),
-          database,
-          user,
-          password,
+    const config = parse(dbUrl);
+
+    return {
+      connection: {
+        client: "postgres",
+        connection: {
+          host: config.host,
+          port: Number(config.port),
+          database: config.database,
+          user: config.user,
+          password: config.password,
           ssl: {
             rejectUnauthorized: false,
           },
-        };
-      })(),
-      pool: {
-        min: env.int("DATABASE_POOL_MIN", 2),
-        max: env.int("DATABASE_POOL_MAX", 10),
+        },
       },
-    },
+    };
+  }
 
-    sqlite: {
+  return {
+    connection: {
+      client: "sqlite",
       connection: {
         filename: path.join(
           __dirname,
@@ -38,14 +41,6 @@ export default ({ env }) => {
         ),
       },
       useNullAsDefault: true,
-    },
-  };
-
-  return {
-    connection: {
-      client,
-      ...connections[client],
-      acquireConnectionTimeout: env.int("DATABASE_CONNECTION_TIMEOUT", 60000),
     },
   };
 };
