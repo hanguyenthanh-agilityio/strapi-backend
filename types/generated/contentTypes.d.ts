@@ -880,6 +880,7 @@ export interface PluginUsersPermissionsUser
       true
     >;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    city: Schema.Attribute.String;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
@@ -904,9 +905,12 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    phoneNumber1: Schema.Attribute.String;
+    phoneNumber2: Schema.Attribute.String;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
+    residential: Schema.Attribute.String;
     role: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.role'

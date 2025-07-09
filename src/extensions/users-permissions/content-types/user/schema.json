@@ -75,14 +75,27 @@
       "type": "string"
     },
     "avatar": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "phoneNumber1": {
+      "type": "string"
+    },
+    "phoneNumber2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "residential": {
+      "type": "string"
     }
   }
 }
