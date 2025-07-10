@@ -6,7 +6,7 @@ module.exports = {
       handler: "summary-leaves.countByType",
       config: {
         policies: [],
-        auth: true,
+        strategies: ["user"],
       },
     },
   ],
