@@ -21,9 +21,16 @@ module.exports = {
         }
       );
 
+      const summaryDataArray = Object.entries(leaveApplications).map(
+        ([type, total]) => ({
+          type,
+          total,
+        })
+      );
+
       // Count by leaveType
       const summary = {};
-      leaveApplications.forEach((app) => {
+      summaryDataArray.forEach((app) => {
         const type = app.type;
         summary[type] = (summary[type] || 0) + 1;
       });
