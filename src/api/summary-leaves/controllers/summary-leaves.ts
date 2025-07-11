@@ -21,21 +21,22 @@ module.exports = {
         }
       );
 
-      const summaryDataArray = Object.entries(leaveApplications).map(
-        ([type, total]) => ({
-          type,
-          total,
-        })
-      );
-
       // Count by leaveType
       const summary = {};
-      summaryDataArray.forEach((app) => {
+      leaveApplications.forEach((app) => {
         const type = app.type;
         summary[type] = (summary[type] || 0) + 1;
       });
 
-      ctx.body = summary;
+      const summaryArray = Object.entries(summary).map(([type, total]) => ({
+        type,
+        total,
+      }));
+
+      ctx.body = {
+        success: true,
+        data: summaryArray,
+      };
     } catch (err) {
       ctx.throw(500, err);
     }
