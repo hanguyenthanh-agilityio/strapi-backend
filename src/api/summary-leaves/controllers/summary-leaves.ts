@@ -33,10 +33,7 @@ module.exports = {
         total,
       }));
 
-      ctx.body = {
-        success: true,
-        data: summaryArray,
-      };
+      ctx.body = summaryArray;
     } catch (err) {
       ctx.throw(500, err);
     }
