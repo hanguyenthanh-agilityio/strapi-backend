@@ -407,7 +407,9 @@ export interface ApiLeaveApplicationLeaveApplication
     reliefOfficerLastName: Schema.Attribute.String;
     resumptionDate: Schema.Attribute.Date;
     startDate: Schema.Attribute.Date & Schema.Attribute.Required;
-    type: Schema.Attribute.Enumeration<['annual', 'sick', 'casual']>;
+    type: Schema.Attribute.Enumeration<
+      ['Annual Leave', 'Sick Leave', 'Maternity Leave', 'Exam Leave']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

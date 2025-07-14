@@ -27,9 +27,10 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "annual",
-        "sick",
-        "casual"
+        "Annual Leave",
+        "Sick Leave",
+        "Maternity Leave",
+        "Exam Leave"
       ]
     },
     "durations": {
