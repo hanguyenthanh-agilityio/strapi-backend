@@ -389,6 +389,7 @@ export interface ApiLeaveApplicationLeaveApplication
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    document: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     documentPath: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
