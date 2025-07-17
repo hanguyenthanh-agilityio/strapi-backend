@@ -36,17 +36,6 @@
     "durations": {
       "type": "integer"
     },
-    "documentPath": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "reliefOfficerFirstName": {
       "type": "string"
     },
@@ -62,14 +51,15 @@
       "target": "plugin::users-permissions.user"
     },
     "document": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

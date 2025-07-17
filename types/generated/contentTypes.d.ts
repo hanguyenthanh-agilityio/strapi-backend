@@ -390,9 +390,6 @@ export interface ApiLeaveApplicationLeaveApplication
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     document: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    documentPath: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
     durations: Schema.Attribute.Integer;
     employeeName: Schema.Attribute.String;
     endDate: Schema.Attribute.Date;
