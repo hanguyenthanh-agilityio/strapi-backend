@@ -85,10 +85,10 @@
         "audios"
       ]
     },
-    "phoneNumber1": {
+    "mainPhoneNumber": {
       "type": "string"
     },
-    "phoneNumber2": {
+    "subPhoneNumber": {
       "type": "string"
     },
     "city": {
